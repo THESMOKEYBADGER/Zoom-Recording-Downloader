@@ -1,0 +1,10 @@
+dateutils
+flake8
+certifi==2021.10.8
+chardet==4.0.0
+idna==3.3
+pathvalidate==2.4.1
+python-dateutil==2.8.2
+requests==2.26.0
+tqdm==4.62.3
+urllib3==1.26.7
