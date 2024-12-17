@@ -394,21 +394,9 @@ def main():
 
         try:
             downloads = get_downloads(recording)
-            print(downloads)
-            print(type(downloads))
-            print(len(downloads))
-
-            print('\n\n')
-            for i in downloads:
-                print(i)
-                print('\n')
-
-
         except Exception:
             logger.error(f"Recording files missing for call with id {recording['id']}")
             continue
-
-        all_the_download_urls: list[str] = []
 
         for file_type, file_extension, download_url, recording_type, recording_id in downloads:
             if recording_type != 'incomplete':
@@ -420,20 +408,9 @@ def main():
                     "recording_id": recording_id
                 })
 
-
-                print('this is the recording id')
-                print(recording_id)
-                print('this is the download url')
-                print(download_url)
-                if download_url in all_the_download_urls:
-                    continue
-                
-                all_the_download_urls.append(download_url)
-
                 try:
                     # Download the recording only if it's an mp4 file
                     download_success = download_recording(download_url, email, filename, folder_name)
-                    print('\n\n')
 
                     if not download_success:
                         # Skip processing this recording if download fails
